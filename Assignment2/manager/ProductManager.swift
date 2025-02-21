@@ -13,14 +13,16 @@ class ProductManager {
         self.productList = self.addDummyProducts()
     }
     
-    func buyProdcut(product: Product, quantity: Int) {
+    func subtractProductQuantity(product: Product, quantity: Int) {
         productList.first { p in
             return p.id == product.id
         }?.stockQuantity = product.stockQuantity - quantity
     }
 
-    func addNewProduct(product: Product) {
-        productList.append(product)
+    func addProductQuantity(product : Product, quantity : Int ){
+        productList.first { p in
+            return p.id == product.id
+        }?.stockQuantity = product.stockQuantity + quantity
     }
 
     func addDummyProducts() -> [Product] {
